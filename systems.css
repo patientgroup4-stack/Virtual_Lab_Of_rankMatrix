@@ -1,0 +1,101 @@
+/* Page-specific styles for Systems page */
+
+/* Difference chart table */
+.diff-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  table-layout: fixed;
+}
+
+.diff-table th,
+.diff-table td {
+  border: 2px solid #c7d2fe;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95rem;
+  word-wrap: break-word;
+}
+
+.diff-table th {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+}
+
+.diff-table td {
+  background: #f8fafc;
+}
+
+/* Preformatted examples */
+section pre {
+  background: #f8fafc;
+  border: 2px solid #c7d2fe;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: "Courier New", monospace;
+  overflow-x: auto;
+  margin-top: 0.8rem;
+}
+
+/* Interactive Matrix Input */
+#systemMatrixInput {
+  width: 100%;
+  min-height: 120px;
+  padding: 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 2px solid #c7d2fe;
+  background: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+#systemMatrixInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+#solutionOutput {
+  font-family: "Courier New", monospace;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-top: 0.8rem;
+  white-space: pre-line;
+}
+
+/* Section flex layout for text + image */
+.section-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.section-text {
+  flex: 1 1 400px;
+}
+
+.section-image {
+  flex: 1 1 300px;
+}
+
+.section-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .section-flex {
+    flex-direction: column;
+  }
+
+  .section-image img {
+    max-width: 100%;
+  }
+}

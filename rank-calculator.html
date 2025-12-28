@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rank Calculator | Matrix Learning</title>
+
+  <!-- Global + Page Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="rank-calculator.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="nav-links">
+      <h1>Matrix Learning</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#">Topics ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="rank.html">Rank</a></li>
+            <li><a href="systems.html">System of Linear Equations</a></li>
+            <li><a href="dependence.html">Linear Dependence of Vectors</a></li>
+            <li><a href="eigen.html">Eigenvalues & Eigenvectors</a></li>
+            <li><a href="applications.html">Applications</a></li>
+          </ul>
+        </li>
+
+        <li><a href="rank-calculator.html" class="active">Rank Calculator</a></li>
+        <li><a href="practice.html">Practice</a></li>
+        <li><a href="tests.html">Tests</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="content">
+
+      <!-- INPUT MATRIX -->
+      <section class="page-section">
+        <h2>Rank Calculator (Step-by-Step)</h2>
+        <p>Enter a matrix and perform elementary row operations.</p>
+
+        <textarea id="matrixInput" placeholder="1 2 3
+2 4 6
+1 1 1"></textarea>
+
+        <button id="startBtn" class="primary-btn">Start Row Reduction</button>
+        <button id="showRankBtn" class="primary-btn">Show Rank</button>
+        <button id="resetBtn" class="primary-btn">Clear</button>
+
+
+        <!-- Inline result matching page style -->
+        <p id="directRankResult"
+          style="margin-top:1rem; font-size:1.2rem; font-weight:600; text-align:left; color:#1e3a8a;"></p>
+      </section>
+
+
+      <!-- MATRIX DISPLAY -->
+      <section class="page-section" id="matrixSection" style="display:none;">
+        <h3>Current Matrix</h3>
+        <div id="matrixTable"></div>
+      </section>
+
+      <!-- ROW OPERATIONS -->
+      <section class="page-section" id="operationSection" style="display:none;">
+        <h3>Row Operation</h3>
+
+        <div class="op-box">
+          <span>R</span>
+          <input type="number" id="rowI" min="1" placeholder="i">
+
+          <select id="opType">
+            <option value="add">← Rᵢ + kRⱼ</option>
+            <option value="scale">← kRᵢ</option>
+            <option value="swap">↔ Rⱼ</option>
+          </select>
+
+          <input type="number" id="multiplier" placeholder="k" step="any">
+
+          <span id="rowJLabel">R</span>
+          <input type="number" id="rowJ" min="1" placeholder="j">
+        </div>
+
+        <div style="margin-top:1rem;">
+          <button id="applyOpBtn" class="primary-btn">Apply</button>
+          <button id="undoBtn" class="primary-btn">Undo</button>
+          <button id="finishBtn" class="primary-btn">Finish</button>
+        </div>
+
+        <!-- STEP LOG -->
+        <div id="stepLog" style="margin-top:1.5rem;"></div>
+      </section>
+
+      <!-- RANK CHECK -->
+      <section class="page-section" id="rankCheckSection" style="display:none;">
+        <h3>Enter Rank</h3>
+        <input id="rankInput" type="number" min="0">
+        <button id="checkRankBtn" class="primary-btn">Check Rank</button>
+        <p id="resultText"></p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="rank-calculator.js"></script>
+</body>
+
+</html>

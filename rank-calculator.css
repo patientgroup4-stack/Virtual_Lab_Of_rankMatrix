@@ -1,0 +1,250 @@
+/* ===============================
+   GLOBAL RESET & BODY
+=============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #f5f9ff, #eef2ff);
+  color: #1f2933;
+  line-height: 1.7;
+  padding-top: 85px;
+}
+
+/* ===============================
+   HEADER & NAVIGATION
+=============================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: #fff;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.6rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 0.4rem 0.7rem;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===============================
+   DROPDOWN
+=============================== */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #ffffff;
+  min-width: 240px;
+  list-style: none;
+  padding: 0.6rem 0;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+  z-index: 2000;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.7rem 1.4rem;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
+.dropdown-menu li a:hover {
+  background: #eef2ff;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===============================
+   PAGE LAYOUT
+=============================== */
+.page-wrapper {
+  padding: 3.5rem 0;
+}
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.page-section {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.4rem;
+  margin-bottom: 2.8rem;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+.page-section h2 {
+  font-size: 1.9rem;
+  color: #1e3a8a;
+}
+
+.page-section h3 {
+  font-size: 1.35rem;
+  color: #1e40af;
+  margin-bottom: 0.8rem;
+}
+
+/* ===============================
+   BUTTONS
+=============================== */
+.primary-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-right: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ===============================
+   MATRIX INPUT
+=============================== */
+#matrixInput {
+  width: 100%;
+  min-height: 180px;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 2px solid #c7d2fe;
+  font-family: "Courier New", monospace;
+  background: #f8fafc;
+  margin-bottom: 1.2rem;
+}
+
+#matrixInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ===============================
+   MATRIX DISPLAY (FIXED SPACING)
+=============================== */
+#matrixTable table {
+  margin: auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+#matrixTable td {
+  width: 70px;
+  height: 45px;
+  border: 2px solid #c7d2fe;
+  text-align: center;
+  vertical-align: middle;
+  font-family: "Courier New", monospace;
+  font-size: 1rem;
+  background: #f8fafc;
+}
+
+/* ===============================
+   ROW OPERATION UI
+=============================== */
+.op-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.op-box span {
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.op-box input,
+.op-box select,
+#rankInput {
+  width: 72px;
+  padding: 0.55rem 0.6rem;
+  border-radius: 999px;
+  border: 2px solid #c7d2fe;
+  font-size: 0.95rem;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff, #f1f5ff);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.op-box select {
+  width: auto;
+  padding: 0.55rem 1rem;
+}
+
+.op-box input:focus,
+.op-box select:focus,
+#rankInput:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+/* ===============================
+   RESULT TEXT
+=============================== */
+#resultText {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
