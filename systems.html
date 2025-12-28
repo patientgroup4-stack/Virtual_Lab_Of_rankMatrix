@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>System of Linear Equations | Matrix Learning</title>
+
+  <!-- Global + Page Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/systems.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="nav-links">
+      <h1>Matrix Learning</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#" class="active">Topics ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="rank.html">Rank</a></li>
+            <li><a href="systems.html" class="active">System of Linear Equations</a></li>
+            <li><a href="dependence.html">Linear Dependence of Vectors</a></li>
+            <li><a href="eigen.html">Eigenvalues & Eigenvectors</a></li>
+            <li><a href="applications.html">Applications</a></li>
+          </ul>
+        </li>
+        <li><a href="rank-calculator.html">Rank Calculator</a></li>
+        <li><a href="practice.html">Practice</a></li>
+        <li><a href="tests.html">Tests</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-wrapper">
+    <div class="content">
+
+      <!-- INTRODUCTION -->
+      <section class="page-section">
+        <h2>Systems of Linear Equations</h2>
+        <div class="section-flex">
+          <div class="section-text">
+            <p>In this tutorial, we will learn how to solve systems of linear equations using matrices, understand
+              homogeneous and non-homogeneous systems, and explore step-by-step examples. By the end, you will be able
+              to identify the type of system, solve it using matrix operations, and check for consistency.</p>
+          </div>
+          <div class="section-image">
+            <img src="images/system_intro.png" alt="Systems of Linear Equations Illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- DIFFERENCE CHART -->
+      <section class="page-section">
+        <h3>Difference Between Homogeneous and Non-Homogeneous Systems</h3>
+        <table class="diff-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Homogeneous System</th>
+              <th>Non-Homogeneous System</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Definition</td>
+              <td>All constant terms are zero (AX = 0)</td>
+              <td>At least one constant term is non-zero (AX = B, B ≠ 0)</td>
+            </tr>
+            <tr>
+              <td>Trivial Solution</td>
+              <td>Always has the trivial solution X = 0</td>
+              <td>Trivial solution may not exist</td>
+            </tr>
+            <tr>
+              <td>Number of Solutions</td>
+              <td>May have only trivial or infinitely many solutions depending on rank</td>
+              <td>May have unique solution, infinitely many, or no solution</td>
+            </tr>
+            <tr>
+              <td>Augmented Matrix Rank</td>
+              <td>Rank of coefficient matrix = rank of augmented matrix</td>
+              <td>Rank of augmented matrix may differ from coefficient matrix</td>
+            </tr>
+            <tr>
+              <td>Example</td>
+              <td>
+                <pre>
+x + y = 0
+2x - y = 0
+</pre>
+              </td>
+              <td>
+                <pre>
+x + y = 1
+2x - y = 3
+</pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- HOMOGENEOUS SYSTEM -->
+      <section class="page-section">
+        <h3>Homogeneous System of Equations</h3>
+        <div class="section-flex">
+          <div class="section-text">
+            <p>A homogeneous system is represented as <strong>AX = 0</strong>. It always has the trivial solution X = 0.
+              Depending on the rank of the coefficient matrix, it may have infinitely many solutions.</p>
+            <p><strong>Steps to Solve:</strong></p>
+            <ol>
+              <li>Write the system in augmented matrix form.</li>
+              <li>Perform row operations to reduce it to row-echelon form.</li>
+              <li>Check for free variables to find non-trivial solutions if possible.</li>
+            </ol>
+            <pre>
+Example:
+x + 2y - z = 0
+2x + 4y - 2z = 0
+3x + 6y - 3z = 0
+
+Coefficient Matrix A:
+[1 2 -1]
+[2 4 -2]
+[3 6 -3]
+
+Solution: Trivial solution X = 0
+          </pre>
+          </div>
+          <div class="section-image">
+            <img src="images/homo.jpg" alt="Homogeneous System Illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- NON-HOMOGENEOUS SYSTEM -->
+      <section class="page-section">
+        <h3>Non-Homogeneous System of Equations</h3>
+        <div class="section-flex">
+          <div class="section-text">
+            <p>A non-homogeneous system is represented as <strong>AX = B</strong>, where B ≠ 0. These systems may have a
+              unique solution, infinitely many solutions, or no solution depending on the rank of the coefficient and
+              augmented matrices.</p>
+            <p><strong>Steps to Solve:</strong></p>
+            <ol>
+              <li>Write the system in augmented matrix form.</li>
+              <li>Use row operations to reduce the augmented matrix to row-echelon form.</li>
+              <li>Apply back-substitution to find variable values.</li>
+            </ol>
+            <pre>
+Example:
+x + 2y - z = 1
+2x + 4y - 2z = 2
+3x + 6y - 3z = 3
+
+Augmented Matrix [A|B]:
+[1 2 -1 | 1]
+[2 4 -2 | 2]
+[3 6 -3 | 3]
+
+Solution: Infinitely many solutions
+          </pre>
+          </div>
+          <div class="section-image">
+            <img src="images/non-homo.jpeg" alt="Non-Homogeneous System Illustration">
+          </div>
+        </div>
+      </section>
+
+      <!-- OPTIONAL: INTERACTIVE MATRIX SOLVER -->
+      <section class="page-section" id="matrixExampleSection">
+        <h3>Try Your Own System</h3>
+        <p>Enter a system in augmented matrix form (coefficients + constant term for each row):</p>
+        <textarea id="systemMatrixInput" placeholder="1 2 -1 1
+2 4 -2 2
+3 6 -3 3"></textarea>
+        <button id="solveBtn" class="primary-btn">Solve System</button>
+        <div id="solutionOutput"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="js/system.js"></script>
+</body>
+
+</html>
